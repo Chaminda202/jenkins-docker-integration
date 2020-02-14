@@ -1,24 +1,24 @@
 pipeline{
     agent any
+    tools {
+        maven 'Maven-3.6.3' 
+    }
     stages {
         stage('Dev stage') {
-            steps{
-                withMaven(maven: 'Maven-3.6.3') {
+            steps {
                      bat 'mvn clean install'
                 }
             }
         }
         stage('Qa stage') {
-            steps{
-                withMaven(maven: 'Maven-3.6.3') {
-                     bat 'mvn clean test'
+            steps {
+                     bat 'mvn clean install'
                 }
             }
         }
         stage('Prod stage') {
-            steps{
-                withMaven(maven: 'Maven-3.6.3') {
-                    bat 'mvn clean test'
+            steps {
+                     bat 'mvn clean install'
                 }
             }
         }
