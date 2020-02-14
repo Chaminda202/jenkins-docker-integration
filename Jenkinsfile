@@ -7,19 +7,16 @@ pipeline{
         stage('Dev stage') {
             steps {
                      bat 'mvn clean install'
-                }
             }
         }
         stage('Qa stage') {
             steps {
                      bat 'mvn clean install'
-                }
             }
         }
         stage('Prod stage') {
             steps {
                      bat 'mvn clean install'
-                }
             }
         }
     }
