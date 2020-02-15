@@ -1,5 +1,4 @@
 pipeline{
-    def app
     agent any
     tools {
         maven 'Maven-3.6.3' 
@@ -16,10 +15,12 @@ pipeline{
             }
         }
         stage('Prod stage') {
-            docker.withRegistry('https://registry.hub.docker.com', 'docker_hub') {
-                        app.push("${env.BUILD_NUMBER}")
-                        app.push("latest")
-                    }
+            steps {
+                docker.withRegistry('https://registry.hub.docker.com', 'docker_hub') {
+                            def app = docker.build("chaminda202/dockerwebapp")
+                            app.push("latest")
+                 }
+            }
         }
     }
 }
