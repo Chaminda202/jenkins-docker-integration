@@ -16,7 +16,7 @@ pipeline{
         }
         stage('Prod stage') {
             docker.withRegistry('https://registry.hub.docker.com', 'docker_hub') {
-                        def app = app.push("${env.BUILD_NUMBER}")
+                        def app = docker.build("chaminda202/dockerwebapp")
                         app.push("latest")
                     }
         }
