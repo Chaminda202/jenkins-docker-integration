@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
         /* This builds the actual image */
-        app = docker.build("chaminda202/hellonode")
+        app = docker.build("chaminda202/jenkins-docker-integration")
     }
 
     stage('Push image') {
